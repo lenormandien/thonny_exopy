@@ -24,3 +24,7 @@ classifiers = [
 [project.entry-points."thonny.plugins"]
 exopy = "thonny_exopy.thonnyplugin"
 
+[project.urls]
+"Homepage" = "https://github.com/lenormandien/thonny_exopy"
+"Documentation" = "https://github.com/lenormandien/thonny_exopy/wiki"
+"Issues" = "https://github.com/lenormandien/thonny_exopy/issues"
