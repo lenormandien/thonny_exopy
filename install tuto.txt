@@ -1,0 +1,1 @@
+pip install --upgrade --target="C:\Users\Sylvain\AppData\Roaming\Thonny\plugins\Python310\site-packages" -e .
