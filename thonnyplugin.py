@@ -5,7 +5,7 @@ from thonny import get_workbench
 
 
 def afficher_exercices():
-    url = "https://lenormandien.myqnapcloud.com/exopy_25/backend/api_exopy.php/title?niveau=1"
+    url = ""
 
     try:
         response = requests.get(url, timeout=5)
