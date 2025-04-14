@@ -1,0 +1,10 @@
+README.md
+setup.py
+thonny_exopy.egg-info/PKG-INFO
+thonny_exopy.egg-info/SOURCES.txt
+thonny_exopy.egg-info/dependency_links.txt
+thonny_exopy.egg-info/requires.txt
+thonny_exopy.egg-info/top_level.txt
+thonnycontrib/exopy/__init__.py
+thonnycontrib/exopy/res/tools.program_exopy.png
+thonnycontrib/exopy/res/tools.program_exopy_2x.png

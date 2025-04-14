@@ -1,0 +1,2 @@
+thonny>=4.1.7
+requests>=2.27.1
