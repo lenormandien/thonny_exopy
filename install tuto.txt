@@ -1,9 +1,7 @@
-pip install -e .
-
-
-C:\Users\Sylvain\Desktop\thonny-exopy
+#Thonny - Ouvrir la console du système
 pip install --upgrade pip setuptools wheel
 python setup.py sdist bdist_wheel
-pip install dist/thonny_exopy-1.0.0-py3-none-any.whl
 
-pip install dist/thonny_exopy-0.1.0-py3-none-any.whl --force-reinstall
+#Thonny - Gérer les plugins
+Installer depuis un fichier local
+Cliquez ici pour trouver et installer le fichier du paquet (généralement avec l'extension .whl, .tar.gz ou .zip).
