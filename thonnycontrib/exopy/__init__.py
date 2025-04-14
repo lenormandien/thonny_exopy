@@ -18,7 +18,7 @@ config = configparser.ConfigParser()
 config.read(CONFIG_PATH)
 
 # Récupération de l'URL de base de l'API
-BASE_URL = config.get("API", "base_url", fallback="https://lenormandien.myqnapcloud.com/exopy_25/backend/api_exopy.php")
+BASE_URL = config.get("API", "base_url", fallback="https://")
 
 
 def charger_variables():
