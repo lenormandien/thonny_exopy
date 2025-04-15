@@ -9,42 +9,99 @@ NSI pour récupérer des exercices depuis une API avec aide IA. Ce plugin utilse
 
 ## ✔️ Fonctionnalités principales
 
-@startuml
+** 📋 Navigation dans les exercices
 
-title Fonctionnement du plugin "Exopy - Assistance NSI" (Thonny)
+    Récupération de la liste des exercices disponibles par niveau (niveau=1 à 5) via l'API.
 
-actor "Utilisateur Thonny" as User
-rectangle "Thonny\n(éditeur de code)" as Thonny {
-  User --> (Écrit du code avec un en-tête type "#42_nom_exercice")
-}
+    Affichage des titres dans un menu dynamique dans Thonny :
 
-(Écrit du code avec un en-tête type "#42_nom_exercice") --> (Extraction du commentaire d'en-tête)
+        Menu : Exopy/Niveau X
 
-(Extraction du commentaire d'en-tête) --> (Appel API GET\n/get_exercice)
-(Appel API GET\n/get_exercice) --> (Réception JSON avec :\n- énoncé\n- code\n- tests\n- interdit\n- niveau)
-(Réception JSON avec :\n- énoncé\n- code\n- tests\n- interdit\n- niveau) --> (Sauvegarde config\nconfig.ini)
+        Chaque titre appelle la fonction load_exercise(titre, id)
 
-rectangle "Plugin Exopy Menu Thonny" {
-  (Sauvegarde config\nconfig.ini) --> (Affiche menu :\nniveaux, exercices)
-  (Affiche menu :\nniveaux, exercices) --> (Sélection exercice\npar utilisateur)
-  (Sélection exercice\npar utilisateur) --> (Création fichier .py\nprérempli)
-}
+** 📄 Chargement d’un exercice
 
-rectangle "Assistance NSI" {
-  (Création fichier .py\nprérempli) --> (Appui sur bouton Assistance)
-  (Appui sur bouton Assistance) --> (Récupération code utilisateur)
-  (Récupération code utilisateur) --> (Appel API POST\n/analyse_ia)
-  (Appel API POST\n/analyse_ia) --> (Réponse IA structurée :\n- analyse\n- conseils\n- erreurs détectées)
-  (Réponse IA structurée :\n- analyse\n- conseils\n- erreurs détectées) --> (Affichage dans console Thonny)
-}
+    À partir d’un identifiant d’exercice, récupération via API :
 
-@enduml
+        de l'énoncé (ENONCE)
 
+        du code de départ (CODE)
+
+        des tests (RES_TEST)
+
+        des contraintes (INTERDIT)
+
+        du niveau (NIVEAU)    
+
+    Création d’un fichier .py dans le dossier temporaire avec :
+
+        Un commentaire d’identification #ID_TITRE
+
+        L'énoncé dans une docstring triple-guillemet
+
+        Le code de départ
+
+** 🤖 Évaluation et feedback pédagogique
+
+    Le bouton "Assistance NSI" :
+
+        Envoie le code de l’élève + les tests + l’énoncé à une API.
+
+        Récupère une analyse pédagogique générée par IA via l'API.
+
+        Affiche le tout dans une fenêtre Tkinter contenant :
+
+            Le feedback IA
+
+
+## 🔗 Schéma du fonctionnement global du plugin
+
+     ┌──────────────┐
+     │   Thonny     │
+     │ Éditeur code │───────────────────────────────────────────┐
+     └──────┬───────┘                                           |
+            ▼                                                   |
+      ┌────────────────────┐                                    |
+      │ Appel API EXOPY    │                                    |
+      │ GET /title         │                                    |
+      └─────────┬──────────┘                                    |
+                ▼                                               |
+       ┌──────────────────────────┐                             |
+       │ Menu Thonny Exopy        │                             |
+       │ - Niveau 1 à 5           │                             |
+       │ - Liste d’exercices      │                             |
+       └────────────┬─────────────┘                             |
+                    ▼                                           |
+          ┌───────────────────────┐                             |
+          │ Appel API EXOPY       │                             |
+          │ GET /exercice         │                             |
+          └───────────┬───────────┘                             |
+                      ▼                                         |
+            ┌──────────────────────────────┐                    |
+            │ Récupération des données :   │                    |
+            │  - ENONCE                    │                    |
+            │  - CODE                      │                    |
+            │  - TESTS                     │                    |
+            │  - INTERDIT                  │                    |
+            │  - NIVEAU                    │                    |
+            └──────────────────────────────┘                    |
+                                                                ▼ 
+                                                  ┌──────────────────────────────┐
+                                                  │ Assistance NSI (bouton)      │
+                                                  │   1. Récupère code élève     │
+                                                  │   2. Appel API POST feedback │
+                                                  │   3. Affiche réponse IA      │
+                                                  └──────────────────────────────┘
 
 ## 📋 Prérequis
 
 - Thonny 4.1.7 (Python 3.10)
 - Connexion internet pour joindre l'API
+
+## 🔗 Dépendances
+
+- tkinter, requests, re, json, tempfile, configparser
+- Modules Thonny : get_workbench, get_runner, ui_utils
 
 ## 🚀 Installation
 
