@@ -9,6 +9,36 @@ NSI pour récupérer des exercices depuis une API avec aide IA. Ce plugin utilse
 
 ## ✔️ Fonctionnalités principales
 
+@startuml
+
+title Fonctionnement du plugin "Exopy - Assistance NSI" (Thonny)
+
+actor "Utilisateur Thonny" as User
+rectangle "Thonny\n(éditeur de code)" as Thonny {
+  User --> (Écrit du code avec un en-tête type "#42_nom_exercice")
+}
+
+(Écrit du code avec un en-tête type "#42_nom_exercice") --> (Extraction du commentaire d'en-tête)
+
+(Extraction du commentaire d'en-tête) --> (Appel API GET\n/get_exercice)
+(Appel API GET\n/get_exercice) --> (Réception JSON avec :\n- énoncé\n- code\n- tests\n- interdit\n- niveau)
+(Réception JSON avec :\n- énoncé\n- code\n- tests\n- interdit\n- niveau) --> (Sauvegarde config\nconfig.ini)
+
+rectangle "Plugin Exopy Menu Thonny" {
+  (Sauvegarde config\nconfig.ini) --> (Affiche menu :\nniveaux, exercices)
+  (Affiche menu :\nniveaux, exercices) --> (Sélection exercice\npar utilisateur)
+  (Sélection exercice\npar utilisateur) --> (Création fichier .py\nprérempli)
+}
+
+rectangle "Assistance NSI" {
+  (Création fichier .py\nprérempli) --> (Appui sur bouton Assistance)
+  (Appui sur bouton Assistance) --> (Récupération code utilisateur)
+  (Récupération code utilisateur) --> (Appel API POST\n/analyse_ia)
+  (Appel API POST\n/analyse_ia) --> (Réponse IA structurée :\n- analyse\n- conseils\n- erreurs détectées)
+  (Réponse IA structurée :\n- analyse\n- conseils\n- erreurs détectées) --> (Affichage dans console Thonny)
+}
+
+@enduml
 
 
 ## 📋 Prérequis
