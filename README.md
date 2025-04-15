@@ -7,7 +7,7 @@ NSI pour récupérer des exercices depuis une API avec aide IA. Ce plugin utilse
 ![Thonny](https://img.shields.io/badge/Thonny-4.1.7+-yellow.svg)
 ![Python](https://img.shields.io/badge/Python-3.10+-green.svg)
 
-## 🚀 Fonctionnalités principales
+## ✔️ Fonctionnalités principales
 
 
 
@@ -70,7 +70,7 @@ Ce projet est distribué sous licence MIT. Voir le fichier [LICENSE](LICENSE) po
   
 ## 🔗 Liens utiles
 
-- [Documentation Flask](https://flask.palletsprojects.com/)
+- [Thonny]([https://github.com/thonny])
 
 ---
 
