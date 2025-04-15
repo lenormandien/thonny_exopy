@@ -1,11 +1,11 @@
-# 📚 thonny_exopy
+# 🧔🏻 thonny_exopy
 
 **Thonny_exopy** est un Plugin pour Thonny conçue pour l'enseignement de la spécialité NSI.
 NSI pour récupérer des exercices depuis une API avec aide IA. Ce plugin utilse une API (api_exopy.php) et permet de proposer des exercices typique de la spécialité et propose une aide à la résolution via un prompt spécifique.
 
 ![Licence MIT](https://img.shields.io/badge/Licence-MIT-blue.svg)
-![Python](https://img.shields.io/badge/Python-3.10+-green.svg)
 ![Thonny](https://img.shields.io/badge/Thonny-4.1.7+-yellow.svg)
+![Python](https://img.shields.io/badge/Python-3.10+-green.svg)
 
 ## 🚀 Fonctionnalités principales
 
