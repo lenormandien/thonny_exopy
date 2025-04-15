@@ -5,6 +5,7 @@ NSI pour récupérer des exercices depuis une API avec aide IA. Ce plugin utilse
 
 ![Licence MIT](https://img.shields.io/badge/Licence-MIT-blue.svg)
 ![Python](https://img.shields.io/badge/Python-3.10+-green.svg)
+![Thonny](https://img.shields.io/badge/Thonny-4.1.7+-yellow.svg)
 
 ## 🚀 Fonctionnalités principales
 
@@ -13,6 +14,7 @@ NSI pour récupérer des exercices depuis une API avec aide IA. Ce plugin utilse
 ## 📋 Prérequis
 
 - Thonny 4.1.7 (Python 3.10)
+- Connexion internet pour joindre l'API
 
 ## 🚀 Installation
 
@@ -22,6 +24,8 @@ python setup.py sdist bdist_wheel
 
 Thonny - installateur de paquet
 Gérer les plugins, installer depuis un fichier local puisvpour trouver et installer le fichier du paquet avec l'extension .whl.
+
+Redémarrer Thonny
 
 ## 📁 Structure du projet
 
